@@ -1,0 +1,131 @@
+/* Summagon Promo Widget (scoped via .sg-promo) */
+:root{
+  --promo-primary: #C24D17;
+  --promo-primary-foreground: #ffffff;
+}
+
+.sg-promo {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  border: 3px solid #111;
+  border-radius: 18px;
+  padding: 14px;
+  background: #fff;
+  box-shadow: -6px -6px 0 rgba(0,0,0,0.08);
+  max-width: 520px;
+}
+
+.sg-promo * { box-sizing: border-box; }
+
+.sg-promo a.sg-promo__link {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  align-items: center;
+}
+
+.sg-promo__img {
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #111;
+  background: #f2f2f2;
+}
+
+.sg-promo__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sg-promo__meta { min-width: 0; }
+
+.sg-promo__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sg-promo__badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #ffef9a;
+  white-space: nowrap;
+}
+
+.sg-promo__title {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sg-promo__subtitle {
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Button */
+.sg-promo__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 3px solid #111;
+  border-radius: 999px;
+  background: var(--promo-primary);
+  color: var(--promo-primary-foreground);
+}
+
+.sg-promo__cta::after {
+  content: "↗";
+  font-weight: 900;
+}
+
+/* Hover state when the whole card is hovered */
+.sg-promo a.sg-promo__link:hover .sg-promo__cta {
+  filter: brightness(0.95);
+}
+
+.sg-promo__dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.sg-promo__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 2px solid #111;
+  opacity: 0.35;
+}
+
+.sg-promo__dot.is-active { opacity: 1; }
+
+@media (max-width: 380px) {
+  .sg-promo a.sg-promo__link { grid-template-columns: 72px 1fr; }
+  .sg-promo__img { width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-promo { scroll-behavior: auto; }
+}
