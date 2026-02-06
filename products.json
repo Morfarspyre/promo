@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "rotationMs": 5000,
+  "products": [
+    {
+      "id": "lilla-foretagshjalpen",
+      "title": "Lilla Företagshjälpen",
+      "subtitle": "Lokal bokföring utan abonnemang för småföretagare.",
+      "price": "149 kr",
+      "cta": "Köp",
+      "url": "https://apps.microsoft.com/detail/9nd437frnmcr?hl=sv-SE&gl=SE",
+      "image": "/promo/assets/lillaforetagshjalpen.png"
+    },
+    {
+      "id": "lilla-fakturahjalpen",
+      "title": "Lilla Fakturahjälpen",
+      "subtitle": "Skapa och spara fakturor snabbt och enkelt.",
+      "price": "49.90 kr",
+      "cta": "Köp",
+      "url": "https://apps.microsoft.com/detail/9mz7k9zjhsgw?hl=sv-SE&gl=SE",
+      "image": "/promo/assets/lillafakturahjalpen.png"
+    },
+    {
+      "id": "summagon-multiplikation",
+      "title": "Summagon Multiplikation",
+      "subtitle": "Ett analogt matematikspel med kort och tärning för klassrummet.",
+      "price": "299 kr",
+      "cta": "Köp",
+      "url": "https://summagon.se/produkt/summagonmultiplikation/",
+      "image": "/promo/assets/summagon-multiplikation.png"
+    }
+  ]
+}
