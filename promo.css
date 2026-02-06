@@ -1,4 +1,3 @@
-/* Summagon Promo Widget (scoped via .sg-promo) */
 :root{
   --promo-primary: #C24D17;
   --promo-primary-foreground: #ffffff;
@@ -6,12 +5,21 @@
 
 .sg-promo {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  border: 3px solid #111;
-  border-radius: 18px;
+
+  /* mindre rundning */
+  border-radius: 10px;
+
+  /* stroke: mindre transparens */
+  border: 3px solid rgba(0, 0, 0, 0.30);
+
+  /* bakgrund: lite mer transparent + off-white */
+  background: rgba(250, 248, 243, 0.88);
+
   padding: 14px;
-  background: #fff;
-  box-shadow: -6px -6px 0 rgba(0,0,0,0.08);
   max-width: 520px;
+
+  /* skugga: ca 1/3 av tidigare */
+  box-shadow: -2px -2px 0 rgba(0, 0, 0, 0.08);
 }
 
 .sg-promo * { box-sizing: border-box; }
@@ -28,10 +36,16 @@
 .sg-promo__img {
   width: 96px;
   height: 96px;
-  border-radius: 14px;
+
+  /* mindre rundning */
+  border-radius: 10px;
+
   overflow: hidden;
-  border: 2px solid #111;
-  background: #f2f2f2;
+
+  /* stroke lite mindre transparent */
+  border: 2px solid rgba(0, 0, 0, 0.30);
+
+  background: rgba(0,0,0,0.04);
 }
 
 .sg-promo__img img {
@@ -54,9 +68,12 @@
   font-size: 12px;
   font-weight: 700;
   padding: 3px 8px;
-  border: 2px solid #111;
-  border-radius: 999px;
-  background: #ffef9a;
+  border: 2px solid rgba(0,0,0,0.30);
+
+  /* mindre rundning */
+  border-radius: 10px;
+
+  background: rgba(255, 239, 154, 0.90);
   white-space: nowrap;
 }
 
@@ -70,6 +87,13 @@
   white-space: nowrap;
 }
 
+.sg-promo__price{
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  opacity: 0.95;
+}
+
 .sg-promo__subtitle {
   font-size: 13px;
   margin: 0 0 10px 0;
@@ -81,7 +105,7 @@
   -webkit-box-orient: vertical;
 }
 
-/* Button */
+/* knapp */
 .sg-promo__cta {
   display: inline-flex;
   align-items: center;
@@ -89,8 +113,12 @@
   font-weight: 800;
   font-size: 13px;
   padding: 8px 12px;
-  border: 3px solid #111;
-  border-radius: 999px;
+
+  border: 3px solid rgba(0,0,0,0.30);
+
+  /* mindre rundning */
+  border-radius: 10px;
+
   background: var(--promo-primary);
   color: var(--promo-primary-foreground);
 }
@@ -100,9 +128,15 @@
   font-weight: 900;
 }
 
-/* Hover state when the whole card is hovered */
 .sg-promo a.sg-promo__link:hover .sg-promo__cta {
   filter: brightness(0.95);
+}
+
+.sg-promo__text{
+  margin: 12px 0 0 0;
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0.95;
 }
 
 .sg-promo__dots {
@@ -114,9 +148,12 @@
 .sg-promo__dot {
   width: 8px;
   height: 8px;
+
   border-radius: 999px;
-  border: 2px solid #111;
+  border: 2px solid rgba(0,0,0,0.30);
+
   opacity: 0.35;
+  background: transparent;
 }
 
 .sg-promo__dot.is-active { opacity: 1; }
