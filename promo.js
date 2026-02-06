@@ -177,4 +177,64 @@
 
     loadCssOnce(DEFAULTS.cssUrl);
 
-    le
+    let items = [];
+    let rotationMs = DEFAULTS.rotationMs;
+
+    try {
+      const loaded = await loadProducts(productsUrl);
+      items = loaded.clean;
+      rotationMs = loaded.rotationMs;
+    } catch {
+      container.textContent = "";
+      return;
+    }
+
+    if (items.length === 0) return;
+
+    if (Number.isFinite(forcedRotation)) rotationMs = forcedRotation;
+
+    let idx = 0;
+    let timer = null;
+    let root = render(container, items, idx);
+
+    const shouldRotate = !prefersReducedMotion() && rotationMs > 0 && items.length > 1;
+
+    function tick() {
+      idx = (idx + 1) % items.length;
+      root = render(container, items, idx);
+      attachHoverPause(root);
+    }
+
+    function start() {
+      if (!shouldRotate) return;
+      stop();
+      timer = window.setInterval(tick, rotationMs);
+    }
+
+    function stop() {
+      if (timer) window.clearInterval(timer);
+      timer = null;
+    }
+
+    function attachHoverPause(el) {
+      el.addEventListener("mouseenter", stop);
+      el.addEventListener("mouseleave", start);
+      el.addEventListener("touchstart", stop, { passive: true });
+      el.addEventListener("touchend", start, { passive: true });
+    }
+
+    attachHoverPause(root);
+    start();
+  }
+
+  function initAll() {
+    const nodes = qsa('[data-sg-promo]');
+    nodes.forEach((n) => initOne(n));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll);
+  } else {
+    initAll();
+  }
+})();
